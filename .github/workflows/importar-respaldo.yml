@@ -1,0 +1,25 @@
+name: Importar archivos del respaldo
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comprobar y extraer ZIP
+        run: |
+          unzip -t frigorifico-sarria-2026-10-05.zip
+          test "$(unzip -Z1 frigorifico-sarria-2026-10-05.zip | grep -vc '/$')" -eq 147
+          unzip -oq frigorifico-sarria-2026-10-05.zip
+          test -f index.html
+          test -d assets
+          test -d forms
+      - name: Incorporar archivos al repositorio
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --quiet || git commit -m "Importar archivos completos del sitio"
+          git push origin HEAD:main
