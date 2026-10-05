@@ -1,0 +1,102 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  --background-color: rgba(172, 11, 11, 0);
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 997;
+
+  .logo {
+    line-height: 1;
+
+    img {
+      max-height: 100px;
+      margin-right: 8px;
+    }
+
+    i {
+      font-size: 24px;
+      margin-right: 5px;
+      color: var(--accent-color);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--heading-color);
+    }
+  }
+
+  .btn-getstarted,
+  .btn-getstarted:focus {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    padding: 8px 26px;
+    margin: 0;
+    border-radius: 50px;
+    transition: 0.3s;
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+
+    &:hover {
+      color: var(--contrast-color);
+      background: color-mix(in srgb, var(--accent-color), transparent 15%);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .logo {
+      order: 1;
+    }
+
+    .btn-getstarted {
+      order: 2;
+      margin: 0 15px 0 0;
+      padding: 8px 20px;
+    }
+
+    .navmenu {
+      order: 3;
+    }
+  }
+
+  .scrolled & {
+    box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Global Header on Scroll
+------------------------------*/
+.scrolled .header {
+  --background-color: #ffffff;
+}
+
+/* Linea 1319 Page Header
+------------------------------*/
+.linea-1319-page .header {
+  --background-color: #000000;
+  --default-color: rgba(3, 2, 2, 0);
+  --heading-color: rgba(3, 2, 2, 0);
+  --accent-color: #c4a64a;
+  --surface-color: rgba(204, 0, 0, 0);
+  --contrast-color: #ffffff;
+  --nav-color: #ffffff;
+  --nav-hover-color: #c4a64a;
+  --nav-mobile-background-color: #525252;
+  --nav-dropdown-background-color: #c4a64a;
+  --nav-dropdown-color: #000000;
+  --nav-dropdown-hover-color: #c4a64a;
+}
+
+/* Linea 1319 Page Header on Scroll
+------------------------------*/
+.linea-1319-page.scrolled .header {
+  --background-color: #090101;
+}

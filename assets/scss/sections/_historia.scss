@@ -1,0 +1,211 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Historia Section
+--------------------------------------------------------------*/
+.historia {
+  background-color: var(--surface-color);
+  position: relative;
+
+  .about-image {
+    position: relative;
+
+    img {
+      border-radius: 12px;
+      box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 85%);
+    }
+
+    .experience-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+      color: var(--contrast-color);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 60%);
+
+      .years {
+        display: block;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .text {
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  .about-content {
+    padding-left: 40px;
+
+    @media (max-width: 992px) {
+      padding-left: 0;
+      margin-top: 40px;
+    }
+
+    .section-header {
+      margin-bottom: 30px;
+
+      h2 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--heading-color);
+      }
+
+      .subtitle {
+        font-size: 18px;
+        color: var(--accent-color);
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+    }
+
+    .story-text {
+      margin-bottom: 30px;
+
+      p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        color: var(--default-color);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+
+      .btn {
+        padding: 12px 30px;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+
+        &.btn-primary {
+          background-color: var(--accent-color);
+          color: var(--contrast-color);
+          border-color: var(--accent-color);
+
+          &:hover {
+            background-color: color-mix(in srgb, var(--accent-color), var(--default-color) 15%);
+            transform: translateY(-2px);
+          }
+        }
+
+        &.btn-outline {
+          background-color: transparent;
+          color: var(--accent-color);
+          border-color: var(--accent-color);
+
+          &:hover {
+            background-color: var(--accent-color);
+            color: var(--contrast-color);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+
+  .restaurant-gallery {
+    margin-top: 80px;
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px color-mix(in srgb, var(--default-color), transparent 90%);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+
+        .gallery-caption {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, color-mix(in srgb, var(--default-color), transparent 20%));
+        color: var(--contrast-color);
+        padding: 30px 20px 20px;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+
+        h4 {
+          font-size: 18px;
+          font-weight: 600;
+          margin-bottom: 5px;
+          color: var(--contrast-color);
+        }
+
+        p {
+          font-size: 14px;
+          margin-bottom: 0;
+          color: color-mix(in srgb, var(--contrast-color), transparent 20%);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      .section-header {
+        h2 {
+          font-size: 28px;
+        }
+
+        .subtitle {
+          font-size: 16px;
+        }
+      }
+
+      .cta-buttons {
+        .btn {
+          flex: 1;
+          text-align: center;
+          min-width: 140px;
+        }
+      }
+    }
+
+    .restaurant-gallery {
+      margin-top: 60px;
+
+      .gallery-item {
+        margin-bottom: 20px;
+
+        img {
+          height: 220px;
+        }
+      }
+    }
+  }
+}
