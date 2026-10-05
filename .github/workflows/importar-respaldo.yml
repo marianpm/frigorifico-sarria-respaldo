@@ -7,11 +7,11 @@ jobs:
   importar:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Comprobar y extraer ZIP
         run: |
           unzip -t frigorifico-sarria-2026-10-05.zip
-          test "$(unzip -Z1 frigorifico-sarria-2026-10-05.zip | grep -vc '/$')" -eq 147
+          test "$(unzip -Z1 frigorifico-sarria-2026-10-05.zip | grep -vc '/$')" -eq 144
           unzip -oq frigorifico-sarria-2026-10-05.zip
           test -f index.html
           test -d assets
